@@ -3,6 +3,7 @@
 This is a hello world example demonstrating:
 1. Running tests inside a container that make external network calls
 2. Using testcontainers to spin up services and make network calls to them
+3. Background agent Docker operations and container management
 
 ## What This Does
 
@@ -60,6 +61,37 @@ docker run --rm \
 2. **test_testcontainers_network_call**: Uses testcontainers to spin up nginx:alpine and makes HTTP request to it
 
 Both tests are streamlined for speed while demonstrating full functionality.
+
+## Background Agent Docker Demo
+
+The `docker_agent_demo.py` script demonstrates how background agents can use Docker programmatically:
+
+```bash
+# Run the Docker agent demo locally
+python docker_agent_demo.py
+
+# Or run it inside the container with Docker access
+docker run --rm \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  network-test-demo \
+  python docker_agent_demo.py
+```
+
+This script shows:
+- Docker CLI command execution via subprocess
+- Python Docker library usage for container management
+- Container lifecycle operations (create, start, stop, remove)
+- Image operations (pull, build, remove)
+- Network connectivity testing from containers
+- Real-world patterns agents can use for automation
+
+### Docker Agent Demo Features
+
+1. **CLI Integration**: Execute Docker commands programmatically
+2. **Container Management**: Full lifecycle control via Python Docker library
+3. **Image Operations**: Build custom images and manage image lifecycle
+4. **Network Testing**: Validate container connectivity
+5. **Error Handling**: Robust error handling and cleanup procedures
 
 ## Architecture
 
