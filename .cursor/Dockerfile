@@ -17,11 +17,11 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /
     && apt-get install -y docker-ce-cli docker-compose-plugin \
     && rm -rf /var/lib/apt/lists/*
 
-# Create a non-root user
+# Create a non-root user and docker group
 RUN useradd -m -s /bin/bash ubuntu
 
-# Add ubuntu user to docker group for Docker access
-RUN usermod -aG docker ubuntu
+# Create docker group and add ubuntu user to it for Docker access
+RUN groupadd -f docker && usermod -aG docker ubuntu
 
 # Switch to non-root user
 USER ubuntu
