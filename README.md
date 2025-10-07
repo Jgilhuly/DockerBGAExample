@@ -56,10 +56,10 @@ docker run --rm \
 
 ## What's Being Tested
 
-1. **test_external_api_call**: Makes a GET request to external httpbin.org API
-2. **test_testcontainers_with_network_calls**: Uses testcontainers to spin up nginx and makes HTTP requests to it
-3. **test_testcontainers_httpbin**: Uses testcontainers to spin up httpbin locally, makes GET and POST requests
-4. **test_multiple_external_calls**: Makes multiple GET requests to different external endpoints
+1. **test_external_network_call**: Makes a GET request to external httpbin.org API (fast UUID endpoint)
+2. **test_testcontainers_network_call**: Uses testcontainers to spin up nginx:alpine and makes HTTP request to it
+
+Both tests are streamlined for speed while demonstrating full functionality.
 
 ## Architecture
 
